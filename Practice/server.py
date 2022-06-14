@@ -92,13 +92,13 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 
-@app.route('/api/v1/read/', methods=['GET'])# вывод всex
+@app.route('/api/v1/read/', methods=['GET'])#display tab
 def read_api():
     result = show_employee_tab('Employee', 'Employee_list')
     return make_response(jsonify(result), 200)
 
 
-@app.route('/api/v1/create', methods=['POST'])# добавление
+@app.route('/api/v1/create', methods=['POST'])#add record
 def create_api():
     new_record = request.get_json()
     if not is_there_any_empty_fields():
@@ -108,14 +108,14 @@ def create_api():
         return jsonify({'status': 204, 'message': "Заполните все поля"})
 
 
-@app.route('/api/v1/update', methods=['PUT'])
+@app.route('/api/v1/update', methods=['PUT']#edit record
 def update_api():
     edited_record = request.get_json()
     edit_record('Employee', 'Employee_list',)
     return make_response(jsonify(edited_record), 204)
 
 
-@app.route('/api/v1/delete', methods=['DELETE'])
+@app.route('/api/v1/delete', methods=['DELETE'])#delete record
 def delete_api():
     deleted_record = request.get_json()
     delete_record('Employee', 'Employee_list', deleted_record)
