@@ -36,8 +36,7 @@ def edit_employee():
 
 @app.route('/api/v1/employees/delete', methods=['DELETE'])
 def delete_employee():
-    employeeService.delete(request.get_json())
-    return jsonify({"status": 200})
+    return employeeService.delete(request.get_json())
 
 
 if __name__ == '__main__':
