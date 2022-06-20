@@ -21,9 +21,9 @@ def serialize_employee_tab(employee_list):
 
 def is_there_any_empty_fields(record):
     if record[0]['last_name'] != '' and record[0]['first_name'] != ''\
-        and record['data'][0]['date_of_birth'] != '' and record['data'][0]['job_title'] != ''\
-        and record['data'][0]['hire_date'] != '' and record['data'][0]['dismissal_date'] != ''\
-        and record['data'][0]['email'] != '' and record['data'][0]['phone'] != '':
+        and record[0]['date_of_birth'] != '' and record[0]['job_title'] != ''\
+        and record[0]['hire_date'] != '' and record[0]['dismissal_date'] != ''\
+        and record[0]['email'] != '' and record[0]['phone'] != '':
         return False
     else:
         return True
