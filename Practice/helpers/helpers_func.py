@@ -19,6 +19,7 @@ def serialize_employee_tab(employee_list):
         })
     return serialized
 
+
 def is_there_any_empty_fields(record):
     if record[0]['last_name'] != '' and record[0]['first_name'] != ''\
         and record[0]['date_of_birth'] != '' and record[0]['job_title'] != ''\
