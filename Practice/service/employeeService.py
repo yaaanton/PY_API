@@ -27,7 +27,7 @@ class EmployeeService:
                 new_record[0]['phone']
             ))
             db.session.commit()
-            return make_response(jsonify({'status': 201}))
+            return make_response(jsonify({'status': 201, 'data': new_record}))
         else:
             return make_response(jsonify({'status': 204, 'message': "заполните все строки"}))
 
