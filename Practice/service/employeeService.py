@@ -3,8 +3,6 @@ from flask import jsonify, make_response, request
 from Practice.helpers.helpers_func import is_there_any_empty_fields, serialize_employee_tab
 
 
-
-
 class EmployeeService:
 
     def get(self):
@@ -12,7 +10,6 @@ class EmployeeService:
         serialized=serialize_employee_tab(employees)
         return make_response(jsonify({'status': 200, 'data': serialized}))
 
-    # тут делаем все проверки валидации (функции которых должны лежать в отделаной папке типа validate or helpers)
 
     def post(self, new_record):
         if not is_there_any_empty_fields(new_record):
@@ -31,6 +28,7 @@ class EmployeeService:
         else:
             return make_response(jsonify({'status': 204, 'message': "заполните все строки"}))
 
+
     def update (self, updated_data):
         EmployeeModel.query.filter_by(id=updated_data[0]['id']).update(
             {'last_name': updated_data[0]['last_name'],
@@ -43,7 +41,8 @@ class EmployeeService:
              'phone': updated_data[0]['phone']}
         )
         db.session.commit()
-        return updated_data # зачем?
+        return {'status': 204}
+
 
     def delete (self, delete_record):
         EmployeeModel.query.filter_by(id=delete_record[0]['id']).delete() # не уверен что это рабочая схема
@@ -58,4 +57,4 @@ class EmployeeService:
         #     phone=delete_record[0]['phone']
         # ))
         db.session.commit()
-
+        return {'status': 200}
