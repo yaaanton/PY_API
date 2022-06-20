@@ -3,21 +3,21 @@ from sqlalchemy import update,delete, MetaData,create_engine, Table
 from datetime import date
 
 
-def serialize_employee_tab(employee_list):
-    serialized = []
-    for employee_list in employee_list:
-        serialized.append({
-            'id': employee_list.id,
-            'last_name': employee_list.last_name,
-            'first_name': employee_list.first_name,
-            'date_of_birth': employee_list.date_of_birth,
-            'job_title': employee_list.job_title,
-            'hire_date': employee_list.hire_date,
-            'dismissal_date': employee_list.dismissal_date,
-            'email': employee_list.email,
-            'phone': employee_list.phone,
-        })
-    return serialized
+# def serialize_employee_tab(employee_list):
+#     serialized = []
+#     for employee_list in employee_list:
+#         serialized.append({
+#             'id': employee_list.id,
+#             'last_name': employee_list.last_name,
+#             'first_name': employee_list.first_name,
+#             'date_of_birth': employee_list.date_of_birth,
+#             'job_title': employee_list.job_title,
+#             'hire_date': employee_list.hire_date,
+#             'dismissal_date': employee_list.dismissal_date,
+#             'email': employee_list.email,
+#             'phone': employee_list.phone,
+#         })
+#     return serialized
 
 
 def is_there_any_empty_fields(record):

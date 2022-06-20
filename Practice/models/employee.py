@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from Practice.models.serializer import Serializer
+from sqlalchemy_serializer import SerializerMixin
 
 db = SQLAlchemy()
 
@@ -26,6 +28,9 @@ class EmployeeModel(db.Model):
         self.email = email
         self.phone = phone
 
-    def __repr__(self):
+    def serialize(self):
+        d = Serializer.serialize(self)
+        return d
 
-        pass
+    def __repr__(self):
+        return f"{self.first_name}:{self.second_name}"
